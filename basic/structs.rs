@@ -1,5 +1,6 @@
 use std::fmt;
 
+
 // Display cannot be derived
 #[derive(Copy, PartialEq, Eq, Clone, Debug)]
 struct Point2d {
@@ -13,7 +14,6 @@ impl fmt::Display for Point2d {
         write!(f, "({}, {})", self.x, self.y)
     }
 }
-
 
 fn main() {
    let point = Point2d {x: 32, y: 42};
@@ -48,7 +48,10 @@ fn main() {
         Mars,
         Pluto
     }
+    let _planet = Planet::Mercury;
+    let _planet = Planet::Venus;
     let _planet = Planet::Mars;
+    let _planet = Planet::Pluto;
 
     enum Action {
         MoveForward(usize),
@@ -59,5 +62,26 @@ fn main() {
         Radians(f32),
         Degrees(f32),
     }
+
+
+    // Collections
+    let mut v: Vec<u32> = Vec::new();
+    v.push(1_u32);
+    v.push(2_u32);
+    v.push(3_u32);
+    //println!("vector: {}", v); // no default formatter for Vector
+    //println!("vector pop: {}", v.pop()); // no default formatter for u32 or i32
+    println!("vector len: {}, cap:{}", v.len(), v.capacity());
+
+    enum UserInput {
+        Number(f32),
+        Message(Box<str>),
+    }
+    let mut v: Vec<UserInput> = Vec::new();
+    v.push(UserInput::Number(123.45));
+    v.push(
+       UserInput::Message( "string??".into() )
+    );
+    println!("vector string: {}", v[1].to_sting());
 
 }
