@@ -7,4 +7,8 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-turtle = "1.0.0-rc.3"
+# Use this particular commit of the turtle crate
+turtle = {git = "https://github.com/sunjay/turtle", rev = "0a30fd36c7f345d973c39ad9eca3614f543c8dbb"}
+
+[profile.dev.package."*"]
+opt-level = 3
