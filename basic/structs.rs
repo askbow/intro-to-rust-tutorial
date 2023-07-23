@@ -15,6 +15,7 @@ impl fmt::Display for Point2d {
     }
 }
 
+
 fn main() {
    let point = Point2d {x: 32, y: 42};
    println!("Display: {}", point);
@@ -82,6 +83,6 @@ fn main() {
     v.push(
        UserInput::Message( "string??".into() )
     );
-    println!("vector string: {}", v[1].to_sting());
-
+    v.pop();
+    println!("vector: {}", v.capacity());
 }
