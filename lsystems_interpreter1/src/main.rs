@@ -1,14 +1,15 @@
 use turtle::*;
 
+const N: i32 = 3;
+
 fn main() {
-    let n = 3;
     let mut fred = Turtle::new();
     let mut pattern = String::from("F+F+F+F");
 
     let mut rules = Vec::<(u8, String)>::new();
     rules.push((b'F', "FF-F".into()));
 
-    for _ in 0..n {
+    for _ in 0..N {
         let mut next_pattern = String::new();
         'patterns: for p in pattern.bytes() {
             for (matcher, rewrite) in &rules {
