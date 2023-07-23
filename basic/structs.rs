@@ -15,6 +15,23 @@ impl fmt::Display for Point2d {
     }
 }
 
+struct Agent {
+    x: f32,
+    y: f32,
+    heading: f32,
+}
+
+//method definitions are separate
+impl Agent {
+    fn forward(&mut self, speed: f32) {
+        self.x += self.heading.cos() * speed;
+        self.y += self.heading.sin() * speed;
+    }
+
+    fn turn(&mut self, degrees: f32) {
+        self.heading += degrees;
+    }
+}
 
 fn main() {
    let point = Point2d {x: 32, y: 42};
@@ -85,4 +102,7 @@ fn main() {
     );
     v.pop();
     println!("vector: {}", v.capacity());
+
+    let mut agent = Agent {x: 5.0, y: 32.0, heading: 12.0,};
+    agent.turn(50.0);
 }
