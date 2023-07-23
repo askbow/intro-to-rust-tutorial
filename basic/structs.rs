@@ -21,8 +21,14 @@ struct Agent {
     heading: f32,
 }
 
+// traits are like abstract classes
+trait Move {
+    fn forward(&mut self, speed: f32) {}
+    fn turn(&mut self, degrees: f32) {}
+}
+
 //method definitions are separate
-impl Agent {
+impl Move for Agent {
     fn forward(&mut self, speed: f32) {
         self.x += self.heading.cos() * speed;
         self.y += self.heading.sin() * speed;
