@@ -40,7 +40,7 @@ fn main() {
             '-' => fred.right(angle),  // +
             '[' => stack.push((fred.position(), fred.heading())), // +
             ']' => { // +
-                let (oldpos, oldheading) = stack.pop().unwrap();
+                let (oldpos, oldheading) = stack.pop().unwrap(); // forces unpacking
                 fred.pen_up();
                 fred.go_to(oldpos);
                 fred.set_heading(oldheading);
